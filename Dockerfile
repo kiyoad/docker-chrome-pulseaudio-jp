@@ -35,7 +35,9 @@ RUN \
 
 RUN \
   update-locale LANG=ja_JP.UTF-8 LANGUAGE="ja_JP:ja" && \
-  cp -p /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+  cp -p /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
+  echo "Asia/Tokyo" > /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata
+  
 ENV LANG ja_jp.UTF-8
 
 ENTRYPOINT ["/usr/sbin/sshd", "-D"]
