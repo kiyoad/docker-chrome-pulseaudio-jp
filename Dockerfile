@@ -26,8 +26,7 @@ RUN chown -R chrome:chrome /home/chrome/.ssh
 
 RUN \
   echo "chrome ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/chrome && \
-  chmod 0440 /etc/sudoers.d/chrome && \
-  chown chrome:chrome -R /home/chrome
+  chmod 0440 /etc/sudoers.d/chrome
 
 RUN \
   echo 'PULSE_SERVER=tcp:localhost:64713 google-chrome --no-sandbox' > /usr/local/bin/chrome-pulseaudio-forward && \
@@ -37,7 +36,6 @@ RUN \
   update-locale LANG=ja_JP.UTF-8 LANGUAGE="ja_JP:ja" && \
   cp -p /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
   echo "Asia/Tokyo" > /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata
-  
 ENV LANG ja_jp.UTF-8
 
 ENTRYPOINT ["/usr/sbin/sshd", "-D"]
