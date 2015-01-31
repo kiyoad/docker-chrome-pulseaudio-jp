@@ -11,6 +11,7 @@ RUN \
   echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list && \
   apt-get update && \
   apt-get install -y google-chrome-stable && \
+  rm /etc/apt/sources.list.d/google.list && \
   apt-get install -y fonts-takao fonts-takao-gothic fonts-takao-mincho fonts-takao-pgothic && \
   apt-get install -y language-pack-ja-base language-pack-ja && \
   apt-get install -y openssh-server pulseaudio && \
