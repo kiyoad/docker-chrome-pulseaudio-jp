@@ -25,6 +25,11 @@ ADD id_rsa.pub /home/chrome/.ssh/authorized_keys
 RUN chown -R chrome:chrome /home/chrome/.ssh
 
 RUN \
+  echo "chrome ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/chrome && \
+  chmod 0440 /etc/sudoers.d/chrome && \
+  chown chrome:chrome -R /home/chrome
+
+RUN \
   echo 'PULSE_SERVER=tcp:localhost:64713 google-chrome --no-sandbox' > /usr/local/bin/chrome-pulseaudio-forward && \
   chmod 755 /usr/local/bin/chrome-pulseaudio-forward
 
