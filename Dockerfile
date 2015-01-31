@@ -2,7 +2,7 @@ FROM ubuntu:latest
 MAINTAINER KIYOHIRO ADACHI <kiyoad@da2.so-net.ne.jp>
 # I got the original idea from https://github.com/jlund/docker-chrome-pulseaudio. Thank a lot!
 
-ENV REFRESHED_AT 2015-01-25
+ENV REFRESHED_AT 2015-01-31
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN \
