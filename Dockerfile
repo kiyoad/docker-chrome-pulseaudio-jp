@@ -22,7 +22,7 @@ RUN \
   adduser --disabled-password --gecos "Chrome User" --uid 1000 chrome && \
   mkdir /home/chrome/.ssh
 ADD id_rsa.pub /home/chrome/.ssh/authorized_keys
-RUN chown -R chrome:chrome /home/chrome/.ssh
+RUN mkdir /home/chrome/Downloads && chown -R chrome:chrome /home/chrome
 
 RUN \
   echo "chrome ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/chrome && \
