@@ -19,7 +19,7 @@ RUN \
 
 RUN \
   mkdir /var/run/sshd && \
-  adduser --disabled-password --gecos "Chrome User" --uid 5001 chrome && \
+  adduser --disabled-password --gecos "Chrome User" --uid 1000 chrome && \
   mkdir /home/chrome/.ssh
 ADD id_rsa.pub /home/chrome/.ssh/authorized_keys
 RUN chown -R chrome:chrome /home/chrome/.ssh
